@@ -2,6 +2,9 @@
 
 Finally got my parser finished for the raw data dump of the US Census Bureau's MAF/Tiger GIS dataset from ESRI shapefiles to Microsoft SQL Server.
 
+Why did I do this?
+Previously I was utilizing the OGR2OGR utility by creating batch files that instantiated a python environment and ran the utility on every single file that was contained within the dataset. This was not only incredibly tedious to perform, it was also incredibly slow, and could not handle larger files. The OGR utility does a commit per record whereas this application does bulk inserts for the entire record. Additionally, instead of processing only one file at a time, this application processes a directory of directories of files and can handle files as large as your memory will allow as it was written to operate on 64-bit platforms instead of 32-bit platforms that OGR is designed to run on. It's faster, able to handle bigger files, and less strenuous on the machine and database engine.
+
 Is it perfect? No... Far from it...
 
 Does it work? ABSOLUTELY! It's rather hypnotizing to watch it work... There are a few OCD issues I have with it but aside from that, it functions as expected for dumping the raw data to SQL Server.
