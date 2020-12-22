@@ -20,13 +20,13 @@ namespace GISParser.Models.Binding
 
 		public long PartTypeId { get; set; }
 
-		public int SortIndex { get; set; }
+		public int? SortIndex { get; set; }
 
-		public int NumberOfPoints { get; set; }
+		public int? NumberOfPoints { get; set; }
 
-		public int StartIndex { get; set; }
+		public int? StartIndex { get; set; }
 
-		public int EndIndex { get; set; }
+		public int? EndIndex { get; set; }
 
 		public Shape Shape { get; set; }
 

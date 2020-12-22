@@ -62,7 +62,7 @@ namespace GISParser.Models.Binding
 
 					ContentLength = NumericsHelper.ReverseInt(br.ReadInt32()); // Big Endian, Reverse for actual value
 					FileVersion = br.ReadInt32();
-					ShapeType = (ShapeType) br.ReadInt32();
+					ShapeType = (ShapeType)br.ReadInt32();
 					XMin = br.ReadDouble();
 					YMin = br.ReadDouble();
 					XMax = br.ReadDouble();
@@ -80,7 +80,7 @@ namespace GISParser.Models.Binding
 					}
 
 					if (!(rowsAffected > 0)
-					    || !(Id > 0))
+						|| !(Id > 0))
 						throw new Exception(
 							"The index file was not added to the database properly. No ID is present to assign to the child index records. Unable to proceed!");
 

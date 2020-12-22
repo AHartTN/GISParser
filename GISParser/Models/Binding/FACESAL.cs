@@ -1,14 +1,9 @@
-namespace GISParser.Models.Binding
+using System.Data.Entity.Spatial;
+using GISParser.Models.Base;
+
+public class FACESAL : BaseModel
 {
-	#region Library Imports
-
-	using Base;
-
-	#endregion
-
-	public class FACESAL : BaseModel
-	{
-		public int? TFID { get; set; }
-		public long? AREAID { get; set; }
-	}
+	public int? TFID { get; set; }
+	public long AREAID { get; set; }
+	public DbGeometry GEOM { get; set; }
 }

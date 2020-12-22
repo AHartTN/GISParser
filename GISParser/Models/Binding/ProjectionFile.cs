@@ -34,12 +34,12 @@
 
 		private int? _srid { get; set; }
 
-		public int SRID
+		public int? SRID
 		{
 			get
 			{
 				if (_srid == null
-				    || !(_srid > 0))
+					|| !(_srid > 0))
 				{
 					int? result;
 					using (SqlConnection conn = new SqlConnection(DataHelper.DefaultConnectionString))
@@ -54,7 +54,7 @@
 
 							conn.Open();
 
-							result = (int?) cmd.ExecuteScalar();
+							result = (int?)cmd.ExecuteScalar();
 
 							Console.WriteLine($"SRID: {result}");
 
@@ -65,7 +65,7 @@
 					_srid = result ?? 4326;
 				}
 
-				return (int) _srid;
+				return (int)_srid;
 			}
 		}
 

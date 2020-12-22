@@ -1,10 +1,10 @@
+using GISParser.Models.Base;
+
 namespace GISParser.Models.Binding
 {
-	public class Point
+	public class Point : BaseModel
 	{
-		public long Id { get; set; }
-
-		public int SortIndex { get; set; }
+		public int? SortIndex { get; set; }
 
 		public double X { get; set; }
 

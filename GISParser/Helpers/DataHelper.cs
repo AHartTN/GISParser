@@ -24,7 +24,7 @@
 	public static class DataHelper
 	{
 		public const string DbfConnectionStringTemplate =
-			@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=dBASE IV;User ID=Admin";
+            @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=dBASE IV;";
 
 		public static string DefaultConnectionString
 			=> ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -150,9 +150,7 @@
 
 		public static void SqlBulkCopy_SqlRowsCopied(object sender, SqlRowsCopiedEventArgs e)
 		{
-			SqlBulkCopy sbc = sender as SqlBulkCopy;
-
-			if (sbc == null)
+			if (!(sender is SqlBulkCopy sbc))
 			{
 				e.Abort = true;
 				return;
@@ -238,7 +236,7 @@
 				string connectionString = GetDbfConnectionString(file);
 				string selectString = GetDbfSelectString(file);
 				using (OleDbConnection conn = new OleDbConnection(connectionString))
-				using (OleDbCommand cmd = conn.CreateCommand())
+				using ( OleDbCommand cmd = conn.CreateCommand())
 				{
 					cmd.CommandType = CommandType.Text;
 					cmd.CommandText = selectString;
@@ -246,7 +244,6 @@
 
 					cmd.Connection.Open();
 
-					DataTable schema = cmd.Connection.GetSchema();
 					OleDbDataAdapter da = new OleDbDataAdapter(cmd);
 					da.FillSchema(data, SchemaType.Source);
 					da.Fill(data);

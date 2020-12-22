@@ -12,11 +12,11 @@ namespace GISParser.Models.Binding
 	{
 		public long IndexFileId { get; set; }
 
-		public int RecordNumber { get; set; }
+		public int? RecordNumber { get; set; }
 
-		public int Offset { get; set; }
+		public int? Offset { get; set; }
 
-		public int ContentLength { get; set; }
+		public int? ContentLength { get; set; }
 
 		public IndexFile IndexFile { get; set; }
 	}

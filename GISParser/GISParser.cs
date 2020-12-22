@@ -110,8 +110,14 @@
 
 			#region File Processing
 
+			//var directories = DirectoryFiles.OrderBy(o => o.Value.Count()).ThenByDescending(t => t.Key.Name).Skip(47);
+
+			//int index = 0;
+			//foreach (var dir in directories)
+			//	Console.WriteLine($"{++index} {dir.Key}");
+
 			// Single-Threaded Operation
-			foreach (KeyValuePair<DirectoryInfo, IEnumerable<FileInfo>> directory in DirectoryFiles.OrderBy(o => o.Value.Count()).ThenByDescending(t => t.Key.Name))
+			foreach (KeyValuePair<DirectoryInfo, IEnumerable<FileInfo>> directory in DirectoryFiles.OrderBy(o => o.Value.Count()))
 			{
 				ProcessDirectory(directory);
 			}
@@ -143,7 +149,7 @@
 			Console.WriteLine(
 				$"Now processing {directory.Value.Count()} zip files in the {nameDefinitionType} ({nameDefinition}) directory");
 
-			RawGISDataEntities db = new RawGISDataEntities();
+			RawTigerDataEntities db = new RawTigerDataEntities();
 			db.Database.Initialize(true);
 
 			// Single-Threaded Operation
@@ -186,7 +192,7 @@
 
 			if (Directory.Exists(outputPath))
 			{
-				Console.WriteLine($"Deleting Directory: {outputPath}");
+				//Console.WriteLine($"Deleting Directory: {outputPath}");
 				FileSystem.DeleteDirectory(outputPath, UIOption.OnlyErrorDialogs, RecycleOption.DeletePermanently);
 			}
 
@@ -194,7 +200,7 @@
 
 			#region File Extraction
 
-			Console.WriteLine($"\rExtracting {file.Name} to {outputPath}\t\t");
+			//Console.WriteLine($"\rExtracting {file.Name} to {outputPath}\t\t");
 			ZipFile.ExtractToDirectory(file.FullName, outputPath);
 
 			#endregion File Extration
@@ -208,7 +214,7 @@
 
 			if (attributeFileInfo.Exists && attributeFileInfo.Name.Length > 8)
 			{
-				Console.WriteLine("Renaming Attribute File");
+				//Console.WriteLine("Renaming Attribute File");
 				string newName = "Attrib.dbf";
 				FileSystem.RenameFile(attributeFilePath, newName);
 
@@ -262,12 +268,20 @@
 				foreach (DataColumn column in attributeFile.Records.Tables[0].Columns)
 					sbc.ColumnMappings.Add(column.ColumnName, column.ColumnName);
 
-				sbc.WriteToServer(attributeFile.Records.Tables[0]);
+				try
+				{
+					sbc.WriteToServer(attributeFile.Records.Tables[0]);
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e);
+					throw;
+				}
 			}
 
 			#region Directory Cleanup
 
-			Console.WriteLine($"Deleting Directory: {outputPath}");
+			Console.WriteLine($"\rDeleting Directory: {outputPath}\t\t\t\t");
 			FileSystem.DeleteDirectory(outputPath, UIOption.OnlyErrorDialogs, RecycleOption.DeletePermanently);
 
 			#endregion Directory Cleanup

@@ -23,6 +23,8 @@
 		{
 			Console.BufferHeight = short.MaxValue - 1;
 			Console.BufferWidth = 1024;
+
+			SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
 		}
 	}
 }

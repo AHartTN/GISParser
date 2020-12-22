@@ -32,7 +32,7 @@ namespace GISParser.Models.Binding
 					"No SRID was provided. Unable to determine the spatial coordinate system to utilize for the shape file!",
 					nameof(srid));
 
-			SRID = (int) srid;
+			SRID = (int)srid;
 
 			ImportFromFile(file);
 		}
@@ -53,7 +53,7 @@ namespace GISParser.Models.Binding
 
 		public double? MMax { get; set; }
 
-		public int SRID { get; set; }
+		public int? SRID { get; set; }
 
 		public ICollection<Shape> Shapes { get; set; }
 
@@ -72,7 +72,7 @@ namespace GISParser.Models.Binding
 
 					ContentLength = NumericsHelper.ReverseInt(br.ReadInt32()); // Big Endian, Reverse for actual value
 					FileVersion = br.ReadInt32();
-					ShapeType = (ShapeType) br.ReadInt32();
+					ShapeType = (ShapeType)br.ReadInt32();
 					XMin = br.ReadDouble();
 					YMin = br.ReadDouble();
 					XMax = br.ReadDouble();

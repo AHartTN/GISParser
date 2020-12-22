@@ -1,14 +1,9 @@
-namespace GISParser.Models.Binding
+using System.Data.Entity.Spatial;
+using GISParser.Models.Base;
+
+public class ADDRFN : BaseModel
 {
-	#region Library Imports
-
-	using Base;
-
-	#endregion
-
-	public class ADDRFN : BaseModel
-	{
-		public long? ARID { get; set; }
-		public long? LINEARID { get; set; }
-	}
+	public long ARID { get; set; }
+	public long LINEARID { get; set; }
+	public DbGeometry GEOM { get; set; }
 }

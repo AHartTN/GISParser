@@ -30,7 +30,7 @@ namespace GISParser.Models.Binding
 					"No SRID was provided. Unable to determine the spatial coordinate system to utilize for the shape file!",
 					nameof(srid));
 
-			SRID = (int) srid;
+			SRID = (int)srid;
 
 			ImportFromBinaryReader(shapeType, br);
 		}
@@ -59,9 +59,9 @@ namespace GISParser.Models.Binding
 
 		public double? MMax { get; set; }
 
-		public int NumberOfParts { get; set; }
+		public int? NumberOfParts { get; set; }
 
-		public int NumberOfPoints { get; set; }
+		public int? NumberOfPoints { get; set; }
 
 		public int SRID { get; set; }
 
@@ -81,10 +81,10 @@ namespace GISParser.Models.Binding
 				long streamLength = br.BaseStream.Length;
 				RecordNumber = NumericsHelper.ReverseInt(br.ReadInt32()); // Big, Reverse for actual value
 				ContentLength = NumericsHelper.ReverseInt(br.ReadInt32()); // Big, Reverse for actual value
-				ShapeType = (ShapeType) br.ReadInt32();
+				ShapeType = (ShapeType)br.ReadInt32();
 
 				if (ShapeType == ShapeType.Null
-				    || shapeType == ShapeType.Null)
+					|| shapeType == ShapeType.Null)
 					return;
 
 				if (ShapeType != shapeType)
@@ -189,7 +189,7 @@ namespace GISParser.Models.Binding
 				}
 
 				for (int i = 0; i < NumberOfParts; i++)
-					// Set the number of points. This is done after initial grab to account for first/last elements
+				// Set the number of points. This is done after initial grab to account for first/last elements
 				{
 					if (hasParts && hasPartTypes)
 						parts[i].PartTypeId = br.ReadInt32();
@@ -208,7 +208,7 @@ namespace GISParser.Models.Binding
 							X = br.ReadDouble(),
 							Y = br.ReadDouble()
 						}); // Grab the point
-						//Console.Write(StringHelper.GetProgressString(br.BaseStream.Position, streamLength, $"Part {i} | Point {j}"));
+							//Console.Write(StringHelper.GetProgressString(br.BaseStream.Position, streamLength, $"Part {i} | Point {j}"));
 					}
 
 				if (shapeClass == ShapeClass.Depth)
@@ -230,8 +230,8 @@ namespace GISParser.Models.Binding
 				}
 
 				if (shapeClass == ShapeClass.Depth
-				    ||
-				    shapeClass == ShapeClass.Measurement)
+					||
+					shapeClass == ShapeClass.Measurement)
 				{
 					if (hasMultiplePoints)
 					{
@@ -256,8 +256,8 @@ namespace GISParser.Models.Binding
 					IReadOnlyCollection<string> coordinateStrings = parts.Select(s => s.CoordinateString).ToArray();
 
 					if (ShapeType == ShapeType.Point
-					    || ShapeType == ShapeType.PointZ
-					    || ShapeType == ShapeType.PointM)
+						|| ShapeType == ShapeType.PointZ
+						|| ShapeType == ShapeType.PointM)
 						coordinateStrings = coordinateStrings.Select(s => s.Trim('(').Trim(')').Trim()).ToArray();
 
 					string coordinateString = string.Join(",", coordinateStrings);

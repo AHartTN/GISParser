@@ -13,7 +13,7 @@ namespace GISParser.Models.Binding
 
 		public long AttributeFileId { get; set; }
 
-		public int RecordNumber { get; set; }
+		public int? RecordNumber { get; set; }
 
 		public string Name { get; set; }
 
