@@ -4,10 +4,10 @@ using GISParser.Models.Base;
 
 public class RAILS : BaseModel
 {
-	public long LINEARID { get; set; }
+	public long? LINEARID { get; set; }
 	[MaxLength(61, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string FULLNAME { get; set; }
 	[MaxLength(5, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string MTFCC { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

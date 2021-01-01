@@ -124,7 +124,7 @@ namespace GISParser.Models.Binding
 					//		sbc.ColumnMappings.Add("MMax", "MMax");
 					//		sbc.ColumnMappings.Add("NumberOfParts", "NumberOfParts");
 					//		sbc.ColumnMappings.Add("NumberOfPoints", "NumberOfPoints");
-					//		sbc.ColumnMappings.Add("DTGeometry", "Geometry");
+					//		sbc.ColumnMappings.Add("DTGeography", "Geography");
 
 					//		try
 					//		{

@@ -27,10 +27,10 @@ public class FEATNAMES : BaseModel
 	public short? SUFDIR { get; set; }
 	public short? SUFTYP { get; set; }
 	public short? SUFQUAL { get; set; }
-	public long LINEARID { get; set; }
+	public long? LINEARID { get; set; }
 	[MaxLength(5, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string MTFCC { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string PAFLAG { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

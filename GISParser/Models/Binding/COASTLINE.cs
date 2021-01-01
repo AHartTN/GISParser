@@ -8,5 +8,5 @@ public class COASTLINE : BaseModel
 	public string NAME { get; set; }
 	[MaxLength(5, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string MTFCC { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

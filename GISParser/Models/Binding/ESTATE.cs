@@ -8,7 +8,7 @@ public class ESTATE : BaseModel
 	public short? COUNTYFP { get; set; }
 	public int? ESTATEFP { get; set; }
 	public int? ESTATENS { get; set; }
-	public long GEOID { get; set; }
+	public long? GEOID { get; set; }
 	[MaxLength(36, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string NAME { get; set; }
 	[MaxLength(43, ErrorMessage = "{0}'s length must be {1} characters or less")]
@@ -24,5 +24,5 @@ public class ESTATE : BaseModel
 	public int? AWATER { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

@@ -8,7 +8,7 @@ public class COUSUB : BaseModel
 	public short? COUNTYFP { get; set; }
 	public int? COUSUBFP { get; set; }
 	public int? COUSUBNS { get; set; }
-	public long GEOID { get; set; }
+	public long? GEOID { get; set; }
 	[MaxLength(36, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string NAME { get; set; }
 	[MaxLength(42, ErrorMessage = "{0}'s length must be {1} characters or less")]
@@ -23,9 +23,9 @@ public class COUSUB : BaseModel
 	public int? NCTADVFP { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string FUNCSTAT { get; set; }
-	public long ALAND { get; set; }
-	public long AWATER { get; set; }
+	public long? ALAND { get; set; }
+	public long? AWATER { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

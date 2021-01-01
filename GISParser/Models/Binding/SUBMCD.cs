@@ -8,7 +8,7 @@ public class SUBMCD : BaseModel
 	public int? COUSUBFP { get; set; }
 	public int? SUBMCDFP { get; set; }
 	public int? SUBMCDNS { get; set; }
-	public long GEOID { get; set; }
+	public long? GEOID { get; set; }
 	[MaxLength(20, ErrorMessage="{0}'s length must be {1} characters or less")]
 	public string NAME { get; set; }
 	[MaxLength(30, ErrorMessage="{0}'s length must be {1} characters or less")]
@@ -24,5 +24,5 @@ public class SUBMCD : BaseModel
 	public int? AWATER { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

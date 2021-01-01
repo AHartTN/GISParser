@@ -7,9 +7,9 @@ public class ADDRFEAT : BaseModel
 	public int? TLID { get; set; }
 	public int? TFIDL { get; set; }
 	public int? TFIDR { get; set; }
-	public long ARIDL { get; set; }
-	public long ARIDR { get; set; }
-	public long LINEARID { get; set; }
+	public long? ARIDL { get; set; }
+	public long? ARIDR { get; set; }
+	public long? LINEARID { get; set; }
 	[MaxLength(57, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string FULLNAME { get; set; }
 	[MaxLength(12, ErrorMessage = "{0}'s length must be {1} characters or less")]
@@ -40,7 +40,7 @@ public class ADDRFEAT : BaseModel
 	public string RFROMTYP { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string RTOTYP { get; set; }
-	public bool OFFSETL { get; set; }
-	public bool OFFSETR { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public string OFFSETL { get; set; }
+	public string OFFSETR { get; set; }
+	public DbGeography GEOG { get; set; }
 }

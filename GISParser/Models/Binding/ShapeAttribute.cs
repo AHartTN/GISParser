@@ -9,9 +9,9 @@ namespace GISParser.Models.Binding
 	[Table("ShapeAttribute")]
 	public class ShapeAttribute
 	{
-		public long Id { get; set; }
+		public long? Id { get; set; }
 
-		public long AttributeFileId { get; set; }
+		public long? AttributeFileId { get; set; }
 
 		public int? RecordNumber { get; set; }
 

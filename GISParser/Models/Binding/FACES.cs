@@ -52,9 +52,9 @@ public class FACES : BaseModel
 	public int? NCTADVFP { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string LWFLAG { get; set; }
-	public bool OFFSET { get; set; }
-	public long ATOTAL { get; set; }
+	public string OFFSET { get; set; }
+	public long? ATOTAL { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

@@ -14,11 +14,11 @@ namespace GISParser.Models.Binding
 			Points = new HashSet<Point>();
 		}
 
-		public long Id { get; set; }
+		public long? Id { get; set; }
 
-		public long ShapeId { get; set; }
+		public long? ShapeId { get; set; }
 
-		public long PartTypeId { get; set; }
+		public long? PartTypeId { get; set; }
 
 		public int? SortIndex { get; set; }
 

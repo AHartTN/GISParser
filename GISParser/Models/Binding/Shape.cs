@@ -22,7 +22,7 @@ namespace GISParser.Models.Binding
 		{
 		}
 
-		// TODO: STOP USING WORLDWIDE SRID! Passs the relevant SRID to the constructor for use in Geometry creation!
+		// TODO: STOP USING WORLDWIDE SRID! Passs the relevant SRID to the constructor for use in Geography creation!
 		public Shape(int? srid, ShapeType shapeType, BinaryReader br)
 		{
 			if (srid == null)
@@ -35,9 +35,9 @@ namespace GISParser.Models.Binding
 			ImportFromBinaryReader(shapeType, br);
 		}
 
-		public long Id { get; set; }
+		public long? Id { get; set; }
 
-		public long ShapeFileId { get; set; }
+		public long? ShapeFileId { get; set; }
 
 		public int RecordNumber { get; set; }
 
@@ -69,10 +69,10 @@ namespace GISParser.Models.Binding
 
 		public ShapeType ShapeType { get; set; }
 
-		public DbGeometry Geometry { get; set; }
+		public DbGeography Geography { get; set; }
 
-		public SqlGeometry DTGeometry
-			=> SqlGeometry.STGeomFromWKB(new SqlBytes(Geometry.AsBinary()), Geometry.CoordinateSystemId);
+		public SqlGeography DTGeography
+			=> SqlGeography.STGeomFromWKB(new SqlBytes(Geography.AsBinary()), Geography.CoordinateSystemId);
 
 		public void ImportFromBinaryReader(ShapeType shapeType, BinaryReader br)
 		{
@@ -263,7 +263,7 @@ namespace GISParser.Models.Binding
 					string coordinateString = string.Join(",", coordinateStrings);
 					string wktString = string.Format(wktTemplate, shapeTypeName, coordinateString);
 					//Debug.WriteLine(wktString);
-					Geometry = DbGeometry.FromText(wktString, SRID);
+					Geography = DbGeography.FromText(wktString, SRID);
 				}
 				catch (Exception e)
 				{

@@ -7,7 +7,7 @@ public class NECTADIV : BaseModel
 	public short? CNECTAFP { get; set; }
 	public int? NECTAFP { get; set; }
 	public int? NCTADVFP { get; set; }
-	public long GEOID { get; set; }
+	public long? GEOID { get; set; }
 	[MaxLength(42, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string NAME { get; set; }
 	[MaxLength(57, ErrorMessage = "{0}'s length must be {1} characters or less")]
@@ -16,9 +16,9 @@ public class NECTADIV : BaseModel
 	public string LSAD { get; set; }
 	[MaxLength(5, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string MTFCC { get; set; }
-	public long ALAND { get; set; }
+	public long? ALAND { get; set; }
 	public int? AWATER { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

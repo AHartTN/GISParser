@@ -4,6 +4,6 @@ using GISParser.Models.Base;
 public class FACESMIL : BaseModel
 {
 	public int? TFID { get; set; }
-	public long AREAID { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public long? AREAID { get; set; }
+	public DbGeography GEOG { get; set; }
 }

@@ -26,10 +26,10 @@ public class EDGES : BaseModel
 	public int? ZIPR { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string FEATCAT { get; set; }
-	public bool HYDROFLG { get; set; }
-	public bool RAILFLG { get; set; }
-	public bool ROADFLG { get; set; }
-	public bool OLFFLG { get; set; }
+	public string HYDROFLG { get; set; }
+	public string RAILFLG { get; set; }
+	public string ROADFLG { get; set; }
+	public string OLFFLG { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string PASSFLG { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
@@ -44,9 +44,9 @@ public class EDGES : BaseModel
 	public string PERSIST { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string GCSEFLG { get; set; }
-	public bool OFFSETL { get; set; }
-	public bool OFFSETR { get; set; }
+	public string OFFSETL { get; set; }
+	public string OFFSETR { get; set; }
 	public int? TNIDF { get; set; }
 	public int? TNIDT { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

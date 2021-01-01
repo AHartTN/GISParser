@@ -24,5 +24,5 @@ public class CONCITY : BaseModel
 	public int? AWATER { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

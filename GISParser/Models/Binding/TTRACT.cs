@@ -15,9 +15,9 @@ public class TTRACT : BaseModel
 	public string NAMELSAD { get; set; }
 	[MaxLength(5, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string MTFCC { get; set; }
-	public long ALAND { get; set; }
+	public long? ALAND { get; set; }
 	public int? AWATER { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

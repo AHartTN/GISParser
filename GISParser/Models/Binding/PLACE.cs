@@ -16,15 +16,15 @@ public class PLACE : BaseModel
 	public string LSAD { get; set; }
 	[MaxLength(2, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string CLASSFP { get; set; }
-	public bool PCICBSA { get; set; }
-	public bool PCINECTA { get; set; }
+	public string PCICBSA { get; set; }
+	public string PCINECTA { get; set; }
 	[MaxLength(5, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string MTFCC { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string FUNCSTAT { get; set; }
-	public long ALAND { get; set; }
-	public long AWATER { get; set; }
+	public long? ALAND { get; set; }
+	public long? AWATER { get; set; }
 	public float INTPTLAT { get; set; }
 	public float INTPTLON { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

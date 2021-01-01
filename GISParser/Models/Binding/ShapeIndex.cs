@@ -10,7 +10,7 @@ namespace GISParser.Models.Binding
 	[Table("ShapeIndex")]
 	public class ShapeIndex : BaseModel
 	{
-		public long IndexFileId { get; set; }
+		public long? IndexFileId { get; set; }
 
 		public int? RecordNumber { get; set; }
 

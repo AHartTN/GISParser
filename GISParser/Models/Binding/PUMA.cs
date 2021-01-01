@@ -13,9 +13,9 @@ public class PUMA : BaseModel
 	public string MTFCC10 { get; set; }
 	[MaxLength(1, ErrorMessage = "{0}'s length must be {1} characters or less")]
 	public string FUNCSTAT10 { get; set; }
-	public long ALAND10 { get; set; }
-	public long AWATER10 { get; set; }
+	public long? ALAND10 { get; set; }
+	public long? AWATER10 { get; set; }
 	public float INTPTLAT10 { get; set; }
 	public float INTPTLON10 { get; set; }
-	public DbGeometry GEOM { get; set; }
+	public DbGeography GEOG { get; set; }
 }

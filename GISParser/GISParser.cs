@@ -249,12 +249,12 @@
 
 			if (shapeFile != null)
 			{
-				DataColumn newColumn = new DataColumn("GEOM", typeof(SqlGeometry));
+				DataColumn newColumn = new DataColumn("GEOG", typeof(SqlGeography));
 				attributeFile.Records.Tables[0].Columns.Add(newColumn);
 
 				foreach (Shape shape in shapeFile.Shapes)
 				{
-					attributeFile.Records.Tables[0].Rows[shape.RecordNumber - 1][newColumn.ColumnName] = shape.DTGeometry;
+					attributeFile.Records.Tables[0].Rows[shape.RecordNumber - 1][newColumn.ColumnName] = shape.DTGeography;
 				}
 			}
 
